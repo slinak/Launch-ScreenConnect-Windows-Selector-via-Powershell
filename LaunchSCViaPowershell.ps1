@@ -1,30 +1,52 @@
-﻿#found in SC.context.instanceUrlScheme
+﻿<#
+The easiest way to find this info is to log into your ScreenConnect instance and go to the Host page.  Once there, open the browser's dev 
+console (typically by hitting F12).  Within that console type SC.context and hit enter.  It will display a json object that contains a few 
+useful things.  
+
+Specifically, the $protocol is the instanceUrlScheme (ie sc-xxxx).  The $relayUrl, relayPort, and asymmKey can be found in the clp object.  
+When copying the asymmetric key (object k within SC.context.clp), be sure to url encode it with something like https://www.urlencoder.org/
+
+#>
+
+#region Parameters constant to each ScreenConnect instance
+
+#SC.context.instanceUrlScheme
 $protocol = "sc-45e9cbf539b44075://"
 
+#SC.context.clp.h
 $relayUrl = ""
 
+#SC.context.clp.p
 $relayPort = ""
 
-#indicates which session you're trying to join
-$sessionID = ""
-
-#found in SC.context.clp.k
+#SC.context.clp.k
 $asymmKey = ""
 
-#retrieved at runtime from PageService method 'GetAccessToken'
+#endregion
+
+
+#region Parameters specific to the session connection attempt (and session)
+
+#Indicates which session you're trying to join.  If you click on a Session on the Host page, you'll see a Guid in the browser's URL bar.  
+#That Guid is that specific Session's SessionID.
+$sessionID = ""
+
+#Retrieved at runtime from PageService method 'GetAccessToken'
 $hostAccessToken = ""
 
-#always will be Support, Meeting, or Access
+#Always will be Support, Meeting, or Access
 $sessionType = "Access"
 
-#represents the title of the host client
+#Represents the title of the host client.  By default this is the name of the Session but it can be any value.
 $applicationTitle = ""
 
-#sets certain default beahvior, mainly SuspendedInput
+#Sets certain default beahvior, mainly SuspendedInput.  Typically defaults to None
 $clientLaunchAttributes = ""
 
-#can be used to connect directly into a specific logon session (backstage is always 0)
+#Can be used to connect directly into a specific logon session (backstage is always 0)
 $logonSessionID = ""
+
+#endregion
 
 
 #an example from a dummy instance:
