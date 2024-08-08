@@ -1,6 +1,6 @@
 This is intended to supplement the PowerShell wrapper from here: https://github.com/christaylorcodes/ConnectWiseControlAPI
 
-It assumes that you have the WindowsSelector installed already but instructs how to generate the client launch parameters and how to pass them to the WindowsClient.exe proc
+It assumes that you have the WindowsSelector installed already and instructs how to generate the client launch parameters and how to pass them to the WindowsClient.exe proc
 
 The WindowsSelector works just like any other protocol handler (mailto://, itunes://, etc) in that when it is installed, it registers itself with browsers/the system and is invoked that way.  The format for launching a session is very similar to how it's done for any other session joining method; via a client launch parameter string.
 
